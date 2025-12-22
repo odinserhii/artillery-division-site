@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: red;
-  color: green;
+  background: #f4f4f4;
+  color: #222;
 }
 
 header {
@@ -43,7 +43,7 @@ main {
 footer {
   text-align: center;
   padding: 10px;
-  background: green;
+  background: #eee;
   font-size: 14px;
 }
 
@@ -63,4 +63,3 @@ footer {
   width: 100%;
   max-width: 200px;
 }
-
