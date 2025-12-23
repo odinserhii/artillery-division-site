@@ -1,28 +1,31 @@
-const newsList = document.getElementById("ukraine-news-list");
+const container = document.getElementById("ua-news");
 
-// RSS → через проксі (щоб обійти CORS)
-const RSS_URL = "https://suspilne.media/rss/news.xml";
-const PROXY_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent(RSS_URL);
+const RSS_URL = "https://www.ukrinform.ua/rss/block-lastnews";
+const PROXY_URL = "https://corsproxy.io/?" + encodeURIComponent(RSS_URL);
 
 fetch(PROXY_URL)
-  .then(response => response.text())
-  .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-  .then(data => {
-    const items = data.querySelectorAll("item");
-    newsList.innerHTML = "";
+  .then(res => res.text())
+  .then(xml => {
+    const parser = new DOMParser();
+    const data = parser.parseFromString(xml, "text/xml");
 
-    items.forEach((item, index) => {
-      if (index >= 5) return; // показуємо 5 новин
+    const item = data.querySelector("item");
 
-      const title = item.querySelector("title").textContent;
-      const link = item.querySelector("link").textContent;
+    if (!item) {
+      container.innerText = "Новин немає";
+      return;
+    }
 
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="${link}" target="_blank" rel="noopener">${title}</a>`;
-      newsList.appendChild(li);
-    });
+    const title = item.querySelector("title").textContent;
+    const link = item.querySelector("link").textContent;
+
+    container.innerHTML = `
+      <a href="${link}" target="_blank" rel="noopener">
+        ${title}
+      </a>
+    `;
   })
   .catch(error => {
-    newsList.innerHTML = "<li>Не вдалося завантажити новини</li>";
-    console.error("RSS error:", error);
+    console.error(error);
+    container.innerText = "Не вдалося завантажити новину";
   });
