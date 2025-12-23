@@ -34,6 +34,7 @@
     </div>
 
     <div class="news-card">
+<<<<<<< HEAD
   <h3>Українські новини</h3>
   <ul id="ukraine-news-list">
     <li>Завантаження новини...</li>
@@ -43,6 +44,45 @@
 <!-- ПІСЛЯ ВСІЄЇ РОЗМІТКИ -->
 <script src="../JS/ukraineNews.js"></script>
 
+=======
+      <h3>Українські новини</h3>
+      <ul id="ukraine-news-list"><script>
+          const container = document.getElementById("ua-news");
+
+const RSS_URL = "https://www.ukrinform.ua/rss/block-lastnews";
+const PROXY_URL = "https://corsproxy.io/?" + encodeURIComponent(RSS_URL);
+
+fetch(PROXY_URL)
+  .then(res => res.text())
+  .then(xml => {
+    const parser = new DOMParser();
+    const data = parser.parseFromString(xml, "text/xml");
+
+    const item = data.querySelector("item");
+
+    if (!item) {
+      container.innerText = "Новин немає";
+      return;
+    }
+
+    const title = item.querySelector("title").textContent;
+    const link = item.querySelector("link").textContent;
+
+    container.innerHTML = `
+      <a href="${link}" target="_blank" rel="noopener">
+        ${title}
+      </a>
+    `;
+  })
+  .catch(error => {
+    console.error(error);
+    container.innerText = "Не вдалося завантажити новину";
+  });
+
+        
+      </script></ul>
+    </div>
+>>>>>>> 89633fb54af8c69b9784b0624b5954b16942943c
 
     <div class="news-card">
       <h3>Світові новини</h3>
