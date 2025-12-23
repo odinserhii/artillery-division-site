@@ -34,7 +34,6 @@
     </div>
 
     <div class="news-card">
-<<<<<<< HEAD
   <h3>Українські новини</h3>
   <ul id="ukraine-news-list">
     <li>Завантаження новини...</li>
@@ -44,50 +43,15 @@
 <!-- ПІСЛЯ ВСІЄЇ РОЗМІТКИ -->
 <script src="../JS/ukraineNews.js"></script>
 
-=======
-      <h3>Українські новини</h3>
-      <ul id="ukraine-news-list"><script>
-          const container = document.getElementById("ua-news");
-
-const RSS_URL = "https://www.ukrinform.ua/rss/block-lastnews";
-const PROXY_URL = "https://corsproxy.io/?" + encodeURIComponent(RSS_URL);
-
-fetch(PROXY_URL)
-  .then(res => res.text())
-  .then(xml => {
-    const parser = new DOMParser();
-    const data = parser.parseFromString(xml, "text/xml");
-
-    const item = data.querySelector("item");
-
-    if (!item) {
-      container.innerText = "Новин немає";
-      return;
-    }
-
-    const title = item.querySelector("title").textContent;
-    const link = item.querySelector("link").textContent;
-
-    container.innerHTML = `
-      <a href="${link}" target="_blank" rel="noopener">
-        ${title}
-      </a>
-    `;
-  })
-  .catch(error => {
-    console.error(error);
-    container.innerText = "Не вдалося завантажити новину";
-  });
-
-        
-      </script></ul>
-    </div>
->>>>>>> 89633fb54af8c69b9784b0624b5954b16942943c
 
     <div class="news-card">
-      <h3>Світові новини</h3>
-      <ul id="world-news-list"></ul>
+      <h3>World news</h3>
+      <ul id="world-news-list">
+        <li>Download news...</li>
+      </ul>
     </div>
+    <!-- ПІСЛЯ ВСІЄЇ РОЗМІТКИ -->
+<script src="../JS/worldNews.js"></script>
   </div>
 </section>
 
@@ -97,7 +61,8 @@ fetch(PROXY_URL)
       <div class="finance-row">
         <div class="finance-item">₿ BTC: <span id="btc-price"><script src="../JS/btc.js"></script></span></div>
         <div class="finance-item">💵 USD: <span id="usd-rate">...</span></div>
-        <div class="finance-item">🥇 Gold: <span id="gold-price">...</span></div>
+        <div class="finance-item">🥇 Gold: <span id="gold-price"><script src="../JS/goldPrice.js"></script></span></div>
+
       </div>
     </section>
 
