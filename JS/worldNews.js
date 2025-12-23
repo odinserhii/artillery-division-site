@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
         list.innerHTML = "<li>No news available</li>";
         return;
       }
-
       list.innerHTML = "";
       for (let i = 0; i < Math.min(6, items.length); i++) {
         const item = items[i];
