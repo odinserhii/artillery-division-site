@@ -54,7 +54,7 @@ footer {
 }
 
 .soldier {
-  border: 1px solid #ccc;
+  border: 1px solid #9fa101;
   padding: 10px;
   text-align: center;
 }
@@ -62,4 +62,71 @@ footer {
  img {
   width: 100%;
   max-width: 200px;
+}
+/* ===== УКРАЇНСЬКІ НОВИНИ ===== */
+
+.news-card {
+  background: #9fa101;
+  border: 1px solid #9fa101;
+  border-radius: 10px;
+  padding: 18px;
+  color: #9fa101;
+}
+
+.news-card h3 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #9fa101;
+  letter-spacing: 0.5px;
+}
+
+/* список новин */
+#ukraine-news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#ukraine-news-list li {
+  margin-bottom: 12px;
+  padding-left: 18px;
+  position: relative;
+}
+
+/* маркер */
+#ukraine-news-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000000;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* посилання */
+#ukraine-news-list a {
+  color: #9fa101;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+#ukraine-news-list a:hover {
+  color: #a10101;
+  text-decoration: underline;
+}
+
+/* адаптив */
+@media (max-width: 768px) {
+  .news-card {
+    padding: 14px;
+  }
+
+  #ukraine-news-list a {
+    font-size: 15px;
+  }
 }
