@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Element world-news-list not found");
     return;
   }
-
   const RSS_URL = "https://feeds.bbci.co.uk/news/world/rss.xml";
   const PROXY_URL = "https://api.allorigins.win/raw?url=" + encodeURIComponent(RSS_URL);
 
