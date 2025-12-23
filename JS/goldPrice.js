@@ -1,25 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const goldElement = document.getElementById("gold-price");
-  if (!goldElement) return;
+async function updateUSDRate() {
+    const priceElement = document.getElementById('usd-price');
+    // Використовуємо надійне, сумісне з браузерами API
+    const url = 'open.er-api.com';
 
-  // Використовуємо безкоштовне API через проксі
-  const PROXY_URL = "https://api.allorigins.win/raw?url=";
-  const GOLD_API_URL = "https://www.metals-api.com/api/latest?base=USD&symbols=XAU";
+    try {
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            throw new Error('Помилка сервера API');
+        }
+        
+        const data = await response.json();
+        
+        if (data && data.rates && data.rates.UAH) {
+            const rate = data.rates.UAH.toFixed(2);
+            priceElement.textContent = `${rate} грн`;
+        } else {
+            priceElement.textContent = 'Дані недоступні';
+        }
+    } catch (error) {
+        console.error("Помилка:", error);
+        priceElement.textContent = 'Помилка завантаження курсу';
+    }
+}
 
-  fetch(PROXY_URL + encodeURIComponent(GOLD_API_URL))
-    .then(res => res.json())
-    .then(data => {
-      // API повертає ціни XAU (золото) у доларах
-      // Перевіряємо структуру відповіді
-      if (data && data.rates && data.rates.XAU) {
-        const price = 1 / data.rates.XAU; // бо базова валюта USD
-        goldElement.innerText = price.toFixed(2) + " USD/oz";
-      } else {
-        goldElement.innerText = "Error";
-      }
-    })
-    .catch(err => {
-      console.error("Gold price error:", err);
-      goldElement.innerText = "Error";
-    });
-});
+updateUSDRate();

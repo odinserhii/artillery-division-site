@@ -130,3 +130,31 @@ footer {
     font-size: 15px;
   }
 }
+.finance-card {
+  background: #0f1115;
+  border: 1px solid #2a2f3a;
+  border-radius: 10px;
+  padding: 18px;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.finance-card h3 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #2a2f3a;
+  padding-bottom: 10px;
+}
+
+.finance-items {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.finance-item {
+  font-size: 16px;
+  margin: 8px;
+}
+
