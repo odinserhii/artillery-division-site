@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Артилерійський дивізіон — About</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Артилерійський дивізіон</h1>
+  <nav>
+    <a href="index.html">Головна</a>
+    <a href="about.html">Про підрозділ</a>
+    <a href="staff.html">Особовий склад</a>
+    <a href="gallery.html">Галерея</a>
+    <a href="contact.html">Контакти</a>
+  </nav>
+</header>
+
+<main>
+  <section id="news-section">
+    <h2>Новини</h2>
+
+    <!-- Instagram Embed -->
+    <div class="news-block">
+      <h3>Instagram</h3>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/ВАШ-ПОСТ/" data-instgrm-version="14"></blockquote>
+      <script async src="//www.instagram.com/embed.js"></script>
+    </div>
+
+    <!-- Українські новини (заглушка) -->
+    <div class="news-block">
+      <h3>Українські новини</h3>
+      <ul id="ukraine-news-list">
+        <li>Новина 1: Псевдо-заголовок</li>
+        <li>Новина 2: Псевдо-заголовок</li>
+        <li>Новина 3: Псевдо-заголовок</li>
+      </ul>
+    </div>
+
+    <!-- Міжнародні новини (заглушка) -->
+    <div class="news-block">
+      <h3>Міжнародні новини</h3>
+      <ul id="world-news-list">
+        <li>Новина 1: Псевдо-заголовок</li>
+        <li>Новина 2: Псевдо-заголовок</li>
+        <li>Новина 3: Псевдо-заголовок</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="finance-section">
+    <h2>Фінансові дані</h2>
+    <p>Bitcoin: <span id="btc-price"><script src="btc.js"></script></span></p>
+    <p>Gold: <span id="gold-price"><script>// Gold (XAU/USD) через open API — приклад (можна замінити на реальний API)
+document.getElementById('gold-price').innerText = '2000 USD'; // заглушка</script></span></p>
+    <p>Лідер зростання: <span id="top-gainer"><script>// Лідери ринку (заглушки)
+document.getElementById('top-gainer').innerText = 'Акція A (+5%)';</script></span></p>
+    <p>Лідер падіння: <span id="top-loser"><script>document.getElementById('top-loser').innerText = 'Акція B (-3%)';</script></span></p>
+  </section>
+</main>
+
+<footer>
+  <p>© Навчальний проект. Реальні дані не використовуються.</p>
+</footer>
+
+</body>
+</html>

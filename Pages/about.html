@@ -23,11 +23,99 @@
 
 <main>
   <h2>Про підрозділ</h2>
-  <p>
-    Навчальний артилерійський дивізіон.
-    Структура та опис наведені виключно для демонстрації.
+  <section id="news-section">
+  <h2>Новини</h2>
+
+  <div class="news-block">
+    <h3>Instagram</h3>
+   
+  <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DSjg2QFDYkM/?igsh=MWZkdDl6YXN1cDhxeQ==" data-instgrm-version="14"></blockquote>
+<script async src="//www.instagram.com/embed.js"></script>
+  </div>
+
+  <div class="news-block">
+   <section id="ukraine-news">
+  <h3>Новини України</h3>
+  <ul id="rss-ukraine"></ul>
+</section>
+  </div>
+
+  <div class="news-block">
+    <section id="world-news">
+  <h3>Міжнародні новини</h3>
+  <ul id="rss-world"></ul>
+</section>
+  </div>
+</section>
+
+<section id="finance-section">
+  <h2>Фінансові дані</h2>
+    <p>Bitcoin: 
+      <span id="btc-price">
+        <script>
+        fetch('https://api.coindesk.com/v1/bpi/currentprice/BTC.json')
+        .then(res => res.json())
+        .then(data => 
+        {
+      document.getElementById('btc-price').innerText = data.bpi.USD.rate + ' USD';
+        });
+        </script>
+      </span>
+    </p>
+  <p>USD: 
+    <span id="usd-rate">
+        <script>
+          fetch('https://api.exchangerate-api.com/v4/latest/USD')
+            .then(res => res.json())
+            .then(data => 
+            {
+              document.getElementById('usd-rate').innerText = data.rates.UAH + ' UAH';
+            });
+        </script>
+    </span>
   </p>
-</main>
+
+
+  <p>Gold: 
+    <span id="gold-price">
+      <script>
+        fetch('https://api.exchangerate-api.com/v4/latest/Gold')
+          .then(res => res.json())
+          .then(data => 
+          {
+            document.getElementById('usd-rate').innerText = data.rates.UAH + ' UAH';
+          });
+      </script>
+    </span>
+  </p>
+  <p>Лідер зростання: 
+    <span id="top-gainer">
+      <script>
+        fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+          .then(res => res.json())
+          .then(data => 
+          {
+            // приклад — реальна обробка потребує більше коду
+            // треба отримати дані всіх активів, знайти min/max
+          });
+      </script>
+    </span>
+  </p>
+  <p>Лідер падіння: 
+    <span id="top-loser">
+      <script>
+        fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
+          .then(res => res.json())
+          .then(data => 
+          {
+            // приклад — реальна обробка потребує більше коду
+            // треба отримати дані всіх активів, знайти min/max
+          });
+      </script>
+    </span>
+  </p>
+</section>
+
 
 
 <footer>
