@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Артилерійський дивізіон — About</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../Style/style.css">
+  <link rel="stylesheet" href="../Style/about.css">
 </head>
 <body>
 
@@ -20,46 +21,38 @@
 </header>
 
 <main>
-  <section id="news-section">
-    <h2>Новини</h2>
+  <section class="news-section">
+  <h2>Новини</h2>
 
-    <!-- Instagram Embed -->
-    <div class="news-block">
+  <div class="news-grid">
+    <div class="news-card">
       <h3>Instagram</h3>
       <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/ВАШ-ПОСТ/" data-instgrm-version="14"></blockquote>
       <script async src="//www.instagram.com/embed.js"></script>
     </div>
 
-    <!-- Українські новини (заглушка) -->
-    <div class="news-block">
+    <div class="news-card">
       <h3>Українські новини</h3>
-      <ul id="ukraine-news-list">
-        <li>Новина 1: Псевдо-заголовок</li>
-        <li>Новина 2: Псевдо-заголовок</li>
-        <li>Новина 3: Псевдо-заголовок</li>
-      </ul>
+      <ul id="ukraine-news-list"></ul>
     </div>
 
-    <!-- Міжнародні новини (заглушка) -->
-    <div class="news-block">
-      <h3>Міжнародні новини</h3>
-      <ul id="world-news-list">
-        <li>Новина 1: Псевдо-заголовок</li>
-        <li>Новина 2: Псевдо-заголовок</li>
-        <li>Новина 3: Псевдо-заголовок</li>
-      </ul>
+    <div class="news-card">
+      <h3>Світові новини</h3>
+      <ul id="world-news-list"></ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="finance-section">
-    <h2>Фінансові дані</h2>
-    <p>Bitcoin: <span id="btc-price"><script src="btc.js"></script></span></p>
-    <p>Gold: <span id="gold-price"><script>// Gold (XAU/USD) через open API — приклад (можна замінити на реальний API)
-document.getElementById('gold-price').innerText = '2000 USD'; // заглушка</script></span></p>
-    <p>Лідер зростання: <span id="top-gainer"><script>// Лідери ринку (заглушки)
-document.getElementById('top-gainer').innerText = 'Акція A (+5%)';</script></span></p>
-    <p>Лідер падіння: <span id="top-loser"><script>document.getElementById('top-loser').innerText = 'Акція B (-3%)';</script></span></p>
-  </section>
+
+
+    <section class="finance-section">
+      <div class="finance-row">
+        <div class="finance-item">₿ BTC: <span id="btc-price"><script src="btc.js"></script></span></div>
+        <div class="finance-item">💵 USD: <span id="usd-rate">...</span></div>
+        <div class="finance-item">🥇 Gold: <span id="gold-price">...</span></div>
+      </div>
+    </section>
+
 </main>
 
 <footer>
