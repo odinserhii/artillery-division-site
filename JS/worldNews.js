@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       list.innerHTML = "";
-      for (let i = 0; i < Math.min(7, items.length); i++) {
+      for (let i = 0; i < Math.min(10, items.length); i++) {
         const item = items[i];
         const titleEl = item.querySelector("title");
         const linkEl = item.querySelector("link");
